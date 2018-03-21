@@ -1,0 +1,14 @@
+<li class="single-track bounceInDown">
+    <span>{{track.artist}}</span>
+    <span> - </span>
+    <span>{{track.title}}</span>
+    <span>[{{track.label}}]</span>
+    <div class="icons">
+        <span (click)="editTrack()">
+            <i class="fas fa-edit edit-icon"></i>
+        </span>
+        <span (click)="deleteTrack()">
+            <i class="fas fa-times remove-icon"></i>
+        </span>
+    </div>
+</li>

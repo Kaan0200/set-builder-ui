@@ -1,0 +1,125 @@
+/*Variables*/
+@background: #444444;
+
+/*Override Original Styles to create a completely new feel*/
+
+* {
+  font-family: 'Segoe UI';
+  font-weight: lighter;
+  background: @background;
+  color: whitesmoke;
+  line-height: 0.9;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+input {
+  /*clear input styles*/
+  border-style: none;
+  font-family: inherit;
+  border-bottom: 1px solid lightgreen;
+}
+
+/*Area Styles*/
+
+.main-content {
+  width: 90%;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+.footer {
+  bottom: -3px;
+  position: absolute;
+}
+
+.button-spacing {
+  margin: 1em;
+}
+
+/*Specific Styles*/
+
+.add-track-title {
+  font-size: xx-large;
+  width: 100%;
+  line-height: 1;
+}
+
+.add-track-artist {
+  font-size: x-large;
+  width: 40%;
+  line-height: .8;
+  float: left;
+}
+
+.add-track-label {
+  font-size: x-large;
+  width: 40%;
+  line-height: .8;
+  float: right;
+}
+
+.no-track-message {
+  text-align: center;
+  margin: 5em;
+}
+
+  @button-color: #97A2FF;
+.confirm-track-button {
+  color: @background;
+  background: @button-color;
+  border: none;
+  border-radius: .2em;
+
+  font-size: medium;
+  width: 50%;
+  height: 3em;
+  margin: 1em;
+  margin-left: 25%;
+  &:hover {
+    background: darken(@button-color, 10%);
+  }
+}
+
+/*Track Styles*/
+
+.title-container, .enter-container, .track-container {
+  margin: 2em;
+}
+
+.single-track {
+  padding: .25em;
+  margin: .75em;
+  line-height: 1em;
+  list-style: none;
+  border-left:1px solid skyblue;
+  border-bottom: 1px solid transparent;
+  &:hover {
+    border-bottom: 1px solid skyblue;
+  }
+}
+
+/* Utility Classes*/
+
+.fr {
+  display: flow-root;
+  /* CLEARFIX NEW THING WOW*/
+}
+
+.grey {
+  color: grey;
+}
+
+.error {
+  border-bottom-color: lightcoral;
+}
+
+.q-cursor {
+  cursor: context-menu;
+}
+

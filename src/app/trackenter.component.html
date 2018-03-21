@@ -1,0 +1,42 @@
+<form #trackForm="ngForm">
+    <div>
+        <input 
+            #titlebox type="text" 
+            class="add-track-title"
+            [ngClass]="{'error': titleError }"
+            placeholder="Track Title To Add"
+            [(ngModel)]="currentTrack.title"
+            name="title"
+            (input)="onChange()"
+        />
+    </div>
+    <div>
+        <input #artistbox type="text"
+            class="add-track-artist"
+            [ngClass]="{'error': artistError }"
+            [(ngModel)]="currentTrack.artist"
+            name="artist"
+            placeholder="Track Artist"
+            (input)="onChange()"
+        />
+        <input #labelbox type="text"
+            class="add-track-label"
+            [ngClass]="{'error': labelError }"
+            [(ngModel)]="currentTrack.label"
+            name="label"
+            placeholder="Track Label"
+            (input)="onChange()"
+        />
+    </div>
+    <div>
+        <div class="button-spacing">
+            <button type="submit"
+                class="confirm-track-button"
+                *ngIf="showButton"
+                (click)="onSubmit()"
+            >
+                {{buttonText}}
+            </button>
+        </div>
+    </div>
+</form>
