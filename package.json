@@ -2,6 +2,10 @@
   "name": "set-builder",
   "version": "0.0.0",
   "license": "MIT",
+  "author": {
+    "name": "Alan K Atesoglu",
+    "email": "kaan0200@hotmail.com",
+    "url": "https://kaan0200.github.io"},
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -26,7 +30,7 @@
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.1000.3",
+    "@angular-devkit/build-angular": "^0.1002.0",
     "@angular/cli": "^6.2.9",
     "@angular/compiler-cli": "^5.2.11",
     "@angular/language-service": "^5.2.11",
