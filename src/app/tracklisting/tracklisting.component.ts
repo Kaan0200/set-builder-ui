@@ -4,7 +4,7 @@ import { Track } from '../Track';
 @Component({
   selector: 'app-tracklisting',
   templateUrl: './tracklisting.component.html',
-  styleUrls: ['./tracklisting.component.css']
+  styleUrls: ['./tracklisting.component.less']
 })
 export class TracklistingComponent  {
   @Input() track: Track;

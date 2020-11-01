@@ -9,6 +9,8 @@
   background: @background;
   color: whitesmoke;
   line-height: 0.9;
+
+  overflow: hidden;
 }
 
 input:focus,
@@ -27,15 +29,14 @@ input {
 
 /*Area Styles*/
 
-.main-content {
-  width: 90%;
-  padding-right: 5%;
-  padding-left: 5%;
-}
-
 .footer {
   bottom: -3px;
   position: absolute;
+  transition: bottom ease 1s;
+
+  &:hover {
+    bottom: 3px;
+  }
 }
 
 .button-spacing {
@@ -87,10 +88,6 @@ input {
 }
 
 /*Track Styles*/
-
-.title-container, .enter-container, .track-container {
-  margin: 2em;
-}
 
 .single-track {
   padding: .25em;

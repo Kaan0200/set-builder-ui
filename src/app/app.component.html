@@ -1,29 +1,25 @@
 <div class="main-content">
-  <div class="title-container fr" style="text-align:center">
-    <h1>
-      Welcome to {{ title }}!
-    </h1>
-    <h3>Use this tool to build a bangin' set of tracks to use in DJ mix.</h3>
-  </div>
-  <div class="enter-container fr">
-    <track-form
-      [currentTrack]="currentEdit"
-      (onNewTrack)="onNewTrack($event)"
-    ></track-form>
-  </div>
-  <div class="track-container fr">
-    <div class="no-track-message" *ngIf="tracks.length == 0"> 
-      <span class="grey">Add Some Sweet Tracks!</span>
+
+  <app-menupanel class="left-panel">
+
+  </app-menupanel>
+  <div class="right-content">
+    <div class="enter-container fr">
+      <track-form
+        [currentTrack]="currentEdit"
+        (onNewTrack)="onNewTrack($event)"
+      ></track-form>
     </div>
-    <app-tracklisting 
-      *ngFor="let track of tracks"
-      [track]="track"
-      (onTrackDelete)="onTrackDelete($event)"
-      (onTrackEdit)="onTrackEdit($event)"
-      ></app-tracklisting>
+    <div class="track-container fr">
+      <div class="no-track-message" *ngIf="tracks.length == 0"> 
+        <span class="grey">Add Some Sweet Tracks!</span>
+      </div>
+      <app-tracklisting 
+        *ngFor="let track of tracks"
+        [track]="track"
+        (onTrackDelete)="onTrackDelete($event)"
+        (onTrackEdit)="onTrackEdit($event)"
+        ></app-tracklisting>
+    </div>
   </div>
 </div>
-
-
-
-
