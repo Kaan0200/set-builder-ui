@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, Input, NgModule } from '@angular/core';
-import { Track } from  './objs';
+import { Track } from  './statics/objs';
 
 @Component({
     selector: 'track-form',
@@ -47,8 +47,8 @@ import { Track } from  './objs';
         return;
       }
         if (this._currentTrack.id === -1) { //new
-        // emit
-        this.onNewTrack.emit(this._currentTrack);
+          // emit
+          this.onNewTrack.emit(this._currentTrack);
         }
       this._currentTrack = {title: '', artist: '', label: '', id: -1};
       this.showButton = false;

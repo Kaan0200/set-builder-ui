@@ -4,16 +4,15 @@
             class="set"
             (click)="selectSet(i)"
             *ngFor="let set of sets; let i = index"
+            
         >
             <div>{{set.title}}</div>
-            <div class="set-date">@{{set.lastTouched.toLocaleDateString()}}</div>
+            <div class="set-date">@{{set.lastTouched | date:'MM/dd/yyyy h:mm'}}</div>
         </div>
         <div>
-            <button type="submit"
-            class="confirm-track-button"
-        >
-            New Set
-        </button>
+            <button type="submit" class="confirm-track-button">
+                New Set
+            </button>
         </div>
     </div>
 </div>

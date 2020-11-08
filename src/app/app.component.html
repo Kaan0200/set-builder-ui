@@ -14,6 +14,7 @@
     <div class="track-container fr">
       <app-tracklist
         [set]="sets[currentSetIndex]"
+        (onSetChange)="onSetChange($event)"
       >
 
       </app-tracklist>

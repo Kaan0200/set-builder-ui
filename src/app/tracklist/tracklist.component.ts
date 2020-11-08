@@ -1,5 +1,6 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
-import { Set, Track } from '../objs';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Set, Track } from '../statics/objs';
+import { LOCALSTORAGE_KEY } from '../statics/globals';
 
 @Component({
   selector: 'app-tracklist',
@@ -7,14 +8,13 @@ import { Set, Track } from '../objs';
   styleUrls: ['./tracklist.component.css']
 })
 
-export class TracklistComponent implements OnInit {
+export class TracklistComponent {
+  @Output() onSetChange: EventEmitter<Set> = new EventEmitter();
+
   @Input() set: Set;
   @Input() currentSetIdx: number;
 
   currentEdit : Track = {title: '', artist: '', label: '', id: -1 };
-
-  ngOnInit(): void {
-  }
 
   onNewTrack(newTrack: Track) {
     if (newTrack.id === -1) { // new track
@@ -26,12 +26,21 @@ export class TracklistComponent implements OnInit {
       this.set.tracks.splice(match, 1);
       this.set.tracks.splice(match, 0, newTrack);
     }
+    
+    // Emit update event for storage
+    this.onSetChange.emit(this.set);
   }
   onTrackDelete(track: Track) {
     var idx: number = this.set.tracks.indexOf(track, 0);
     this.set.tracks.splice(idx, 1);
+
+    // Emit update event for storage
+    this.onSetChange.emit(this.set);
   }
   onTrackEdit(track: Track) {
     this.currentEdit = track;
+
+    // Emit update event for storage
+    this.onSetChange.emit(this.set);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Track } from '../../objs';
+import { Track } from '../../statics/objs';
 
 @Component({
   selector: 'app-tracklisting',

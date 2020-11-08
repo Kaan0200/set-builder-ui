@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { Track, Set } from  './objs';
+import { Track, Set } from  './statics/objs';
+import { LOCALSTORAGE_KEY } from './statics/globals';
 
 @Component({
   selector: 'app-root',
@@ -19,27 +20,37 @@ export class AppComponent {
     this.currentSetIndex = index;
   }
 
+  onSetChange(set: Set) {
+
+    set.lastTouched = new Date();
+    // the set has been modified, save it
+    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(this.sets));
+  }
+
   loadSets() {
     // normally we want to get these out of the local storage
+    let memory = localStorage.getItem(LOCALSTORAGE_KEY);
 
-    this.sets.push({
-      title: 'Progressive & Trance Setlist',
-      tracks: [
-        {title: "Drifting Away", artist: "Grum", label: 'Anjunabeats', id: 1},
-        {title: "Mantis", artist: "Genix & Kyau & Albert", label: 'Anjunabeats', id: 2},
-        {title: "Juno", artist: "Maor Levi", label: 'Armada Trice', id: 3}
-      ],
-      lastTouched: new Date()
-    },
-    {
-      title: 'Spacey Techno Setlist',
-      tracks: [
-        {title: 'Phobos', artist: 'Space 92', label: 'Perfekt Groove Recordings', id: 1},
-        {title: 'Existence', artist: 'Pig&Dan', label: 'ELEVATE', id: 2},
-        {title: 'Rising Heart', artist: 'Monika Kruse', label: 'Terminal M', id: 3},
-        {title: 'Fluff Clouds', artist: 'The Yellowheads', label: 'Kraftek', id: 4}
-      ],
-      lastTouched: new Date()
-    })
+    if (memory) {
+      this.sets = JSON.parse(memory);
+
+    } else {
+      this.sets.push(new Set('Progressive & Trance Setlist',
+        [
+          {title: "Drifting Away", artist: "Grum", label: 'Anjunabeats', id: 1},
+          {title: "Mantis", artist: "Genix & Kyau & Albert", label: 'Anjunabeats', id: 2},
+          {title: "Juno", artist: "Maor Levi", label: 'Armada Trice', id: 3}
+        ],
+      ));
+      this.sets.push(new Set(
+        'Spacey Techno Setlist',
+        [
+          {title: 'Phobos', artist: 'Space 92', label: 'Perfekt Groove Recordings', id: 1},
+          {title: 'Existence', artist: 'Pig&Dan', label: 'ELEVATE', id: 2},
+          {title: 'Rising Heart', artist: 'Monika Kruse', label: 'Terminal M', id: 3},
+          {title: 'Fluff Clouds', artist: 'The Yellowheads', label: 'Kraftek', id: 4}
+        ]
+      ));
+    }
   }
 }

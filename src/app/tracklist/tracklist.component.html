@@ -1,5 +1,5 @@
 <div>
-  <div class="no-track-message" *ngIf="set.tracks.length === 0"> 
+  <div class="no-track-message" *ngIf="set && set.tracks.length === 0"> 
     <span class="grey">Add Some Sweet Tracks!</span>
   </div>
   <div>
@@ -13,8 +13,8 @@
   >
   </app-tracklisting>
   <track-form
-  [currentTrack]="currentEdit"
-  (onNewTrack)="onNewTrack($event)"
+    [currentTrack]="currentEdit"
+    (onNewTrack)="onNewTrack($event)"
   >
   </track-form>
 </div>
