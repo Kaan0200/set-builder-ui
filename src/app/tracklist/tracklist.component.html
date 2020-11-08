@@ -1,14 +1,18 @@
 <div>
-  <div class="no-track-message" *ngIf="set && set.tracks.length === 0"> 
-    <span class="grey">Add Some Sweet Tracks!</span>
-  </div>
-  <div >
+  <div>
+    <h1
+      *ngIf="!isEditingTitle && !set.title"
+      (click)="titleEdit()"
+      class="title-empty"
+    >
+      Setlist Title
+    </h1>
     <h1
       *ngIf="!isEditingTitle"
       (click)="titleEdit()"
       class="title-display"
     >
-      {{set.title || 'Title Goes Here'}}
+      {{set.title}}
     </h1>
     <input 
       *ngIf="isEditingTitle"
@@ -17,6 +21,9 @@
       (keyup.enter)="finishTitle()"
       class="title-input"
     />
+  </div>
+  <div class="no-track-message" *ngIf="set && set.tracks.length === 0"> 
+    <span class="grey">Add Some Sweet Tracks!</span>
   </div>
   <app-tracklisting 
     *ngFor="let track of set.tracks"
