@@ -2,15 +2,18 @@
     <div>
         <div
             class="set"
-            (click)="selectSet(i)"
+            (click)="onSelectSet.emit(i)"
             *ngFor="let set of sets; let i = index"
-            
         >
             <div>{{set.title}}</div>
             <div class="set-date">@{{set.lastTouched | date:'MM/dd/yyyy h:mm'}}</div>
         </div>
         <div>
-            <button type="submit" class="confirm-track-button">
+            <button 
+                type="submit" 
+                class="confirm-track-button"
+                (click)="onNewSet.emit()"
+            >
                 New Set
             </button>
         </div>

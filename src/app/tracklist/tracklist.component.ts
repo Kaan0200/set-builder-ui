@@ -5,7 +5,7 @@ import { LOCALSTORAGE_KEY } from '../statics/globals';
 @Component({
   selector: 'app-tracklist',
   templateUrl: './tracklist.component.html',
-  styleUrls: ['./tracklist.component.css']
+  styleUrls: ['./tracklist.component.less']
 })
 
 export class TracklistComponent {
@@ -14,7 +14,8 @@ export class TracklistComponent {
   @Input() set: Set;
   @Input() currentSetIdx: number;
 
-  currentEdit : Track = {title: '', artist: '', label: '', id: -1 };
+  isEditingTitle: boolean = false;
+  currentEdit: Track = {title: '', artist: '', label: '', id: -1 };
 
   onNewTrack(newTrack: Track) {
     if (newTrack.id === -1) { // new track
@@ -30,6 +31,7 @@ export class TracklistComponent {
     // Emit update event for storage
     this.onSetChange.emit(this.set);
   }
+
   onTrackDelete(track: Track) {
     var idx: number = this.set.tracks.indexOf(track, 0);
     this.set.tracks.splice(idx, 1);
@@ -37,8 +39,21 @@ export class TracklistComponent {
     // Emit update event for storage
     this.onSetChange.emit(this.set);
   }
+
   onTrackEdit(track: Track) {
     this.currentEdit = track;
+
+    // Emit update event for storage
+    this.onSetChange.emit(this.set);
+  }
+
+  titleEdit() {
+    this.isEditingTitle = true;
+
+  }
+
+  finishTitle() {
+    this.isEditingTitle = false;
 
     // Emit update event for storage
     this.onSetChange.emit(this.set);

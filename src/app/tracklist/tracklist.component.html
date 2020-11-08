@@ -2,8 +2,21 @@
   <div class="no-track-message" *ngIf="set && set.tracks.length === 0"> 
     <span class="grey">Add Some Sweet Tracks!</span>
   </div>
-  <div>
-    <h1>{{set.title}}</h1>
+  <div >
+    <h1
+      *ngIf="!isEditingTitle"
+      (click)="titleEdit()"
+      class="title-display"
+    >
+      {{set.title || 'Title Goes Here'}}
+    </h1>
+    <input 
+      *ngIf="isEditingTitle"
+      [(ngModel)]="set.title"
+      (input)="onTitleChange()"
+      (keyup.enter)="finishTitle()"
+      class="title-input"
+    />
   </div>
   <app-tracklisting 
     *ngFor="let track of set.tracks"

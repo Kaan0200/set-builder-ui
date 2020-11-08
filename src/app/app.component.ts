@@ -21,10 +21,14 @@ export class AppComponent {
   }
 
   onSetChange(set: Set) {
-
     set.lastTouched = new Date();
     // the set has been modified, save it
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(this.sets));
+  }
+
+  onNewSet() {
+    this.sets.push(new Set('', []));
+    this.currentSetIndex = this.sets.length - 1;
   }
 
   loadSets() {

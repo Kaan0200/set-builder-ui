@@ -10,9 +10,6 @@ export class MenupanelComponent {
   @Input() sets: Set[];
   @Input() currentSetIdx: number;
   @Output() onSelectSet:EventEmitter<number> = new EventEmitter<number>();
+  @Output() onNewSet: EventEmitter<null> = new EventEmitter<null>();
 
-
-  selectSet(index: number) {
-    this.onSelectSet.emit(index);
-  }
 }
