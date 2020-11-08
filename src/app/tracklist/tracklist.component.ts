@@ -9,6 +9,7 @@ import { Set, Track } from '../objs';
 
 export class TracklistComponent implements OnInit {
   @Input() set: Set;
+  @Input() currentSetIdx: number;
 
   currentEdit : Track = {title: '', artist: '', label: '', id: -1 };
 

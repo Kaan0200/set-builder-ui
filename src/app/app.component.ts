@@ -15,6 +15,10 @@ export class AppComponent {
     this.loadSets();
   }
 
+  onSelectSet(index: number) {
+    this.currentSetIndex = index;
+  }
+
   loadSets() {
     // normally we want to get these out of the local storage
 

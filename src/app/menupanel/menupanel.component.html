@@ -1,11 +1,19 @@
 <div class='container'>
     <div>
-        <div 
-            *ngFor="let set of sets">
+        <div
+            class="set"
+            (click)="selectSet(i)"
+            *ngFor="let set of sets; let i = index"
+        >
             <div>{{set.title}}</div>
+            <div class="set-date">@{{set.lastTouched.toLocaleDateString()}}</div>
         </div>
-        <div >
-            Add New Section
+        <div>
+            <button type="submit"
+            class="confirm-track-button"
+        >
+            New Set
+        </button>
         </div>
     </div>
 </div>

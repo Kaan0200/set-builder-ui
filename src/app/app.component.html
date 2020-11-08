@@ -2,6 +2,8 @@
   <!-- Side Menu -->
   <app-menupanel class="left-panel"
     [sets]="sets"
+    [currentSetIdx]="currentSetIndex"
+    (onSelectSet)="onSelectSet($event)"
   >
   </app-menupanel>
 
