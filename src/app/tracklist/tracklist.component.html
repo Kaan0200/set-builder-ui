@@ -1,0 +1,20 @@
+<div>
+  <div class="no-track-message" *ngIf="set.tracks.length === 0"> 
+    <span class="grey">Add Some Sweet Tracks!</span>
+  </div>
+  <div>
+    <h1>{{set.title}}</h1>
+  </div>
+  <app-tracklisting 
+    *ngFor="let track of set.tracks"
+    [track]="track"
+    (onTrackDelete)="onTrackDelete($event)"
+    (onTrackEdit)="onTrackEdit($event)"
+  >
+  </app-tracklisting>
+  <track-form
+  [currentTrack]="currentEdit"
+  (onNewTrack)="onNewTrack($event)"
+  >
+  </track-form>
+</div>

@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, Input, NgModule } from '@angular/core';
-import { Track } from  './Track';
+import { Track } from  './objs';
 
 @Component({
     selector: 'track-form',

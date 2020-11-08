@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { TracklistingComponent } from './tracklisting/tracklisting.component';
+import { TracklistingComponent } from './tracklist/tracklisting/tracklisting.component';
 import { TrackForm } from './trackenter.component';
 import { MenupanelComponent } from './menupanel/menupanel.component';
+import { TracklistComponent } from './tracklist/tracklist.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { MenupanelComponent } from './menupanel/menupanel.component';
     AppComponent,
     TracklistingComponent,
     TrackForm,
-    MenupanelComponent
+    MenupanelComponent,
+    TracklistComponent
   ],
   imports: [
     BrowserModule,

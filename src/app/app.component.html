@@ -1,25 +1,20 @@
 <div class="main-content">
-
-  <app-menupanel class="left-panel">
-
+  <!-- Side Menu -->
+  <app-menupanel class="left-panel"
+    [sets]="sets"
+  >
   </app-menupanel>
+
   <div class="right-content">
     <div class="enter-container fr">
-      <track-form
-        [currentTrack]="currentEdit"
-        (onNewTrack)="onNewTrack($event)"
-      ></track-form>
+
     </div>
     <div class="track-container fr">
-      <div class="no-track-message" *ngIf="tracks.length == 0"> 
-        <span class="grey">Add Some Sweet Tracks!</span>
-      </div>
-      <app-tracklisting 
-        *ngFor="let track of tracks"
-        [track]="track"
-        (onTrackDelete)="onTrackDelete($event)"
-        (onTrackEdit)="onTrackEdit($event)"
-        ></app-tracklisting>
+      <app-tracklist
+        [set]="sets[currentSetIndex]"
+      >
+
+      </app-tracklist>
     </div>
   </div>
 </div>

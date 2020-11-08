@@ -1,10 +1,8 @@
 <div class='container'>
     <div>
-        <div>
-            Section one
-        </div>
-        <div >
-            Saved Sets Section
+        <div 
+            *ngFor="let set of sets">
+            <div>{{set.title}}</div>
         </div>
         <div >
             Add New Section

@@ -4,3 +4,9 @@ export class Track {
     artist: string;
     label: string;
 }
+
+export class Set {
+    title: string;
+    tracks: Track[];
+    lastTouched: Date;
+}

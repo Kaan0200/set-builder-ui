@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Track } from '../Track';
+import { Track } from '../../objs';
 
 @Component({
   selector: 'app-tracklisting',
@@ -15,7 +15,7 @@ export class TracklistingComponent  {
     this.onTrackDelete.emit(this.track);
   }
 
-  editTrack() {
+  editTrack() { 
     this.onTrackEdit.emit(this.track);
   }
 }
