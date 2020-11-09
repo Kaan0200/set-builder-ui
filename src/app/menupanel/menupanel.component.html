@@ -7,6 +7,15 @@
         >
             <div>{{set.title}}</div>
             <div class="set-date">@{{set.lastTouched | date:'MM/dd/yyyy h:mm'}}</div>
+            <div>
+                <i 
+                    class="bx bx-tag"
+                ></i>
+                <i 
+                    class="bx bx-x"
+                    (click)="onDeleteSet.emit(i)"
+                ></i>
+            </div>
         </div>
         <div>
             <button 

@@ -31,6 +31,13 @@ export class AppComponent {
     this.currentSetIndex = this.sets.length - 1;
   }
 
+  onDeleteSet(idx: number) {
+    this.sets.splice(idx, 1);
+
+    // the set has been modified, save it
+    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(this.sets));
+  }
+
   loadSets() {
     // normally we want to get these out of the local storage
     let memory = localStorage.getItem(LOCALSTORAGE_KEY);

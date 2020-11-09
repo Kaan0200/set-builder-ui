@@ -9,7 +9,9 @@ import { Set } from '../statics/objs';
 export class MenupanelComponent {
   @Input() sets: Set[];
   @Input() currentSetIdx: number;
+
   @Output() onSelectSet:EventEmitter<number> = new EventEmitter<number>();
   @Output() onNewSet: EventEmitter<null> = new EventEmitter<null>();
+  @Output() onDeleteSet: EventEmitter<number> = new EventEmitter<number>();
 
 }
